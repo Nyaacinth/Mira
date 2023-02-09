@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        // Language Supports
+        "svelte.svelte-vscode",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        // Comments Highlight
+        "aaron-bond.better-comments",
+        // Prettier
+        "esbenp.prettier-vscode",
+        // Tauri
+        "tauri-apps.tauri-vscode",
+        // UnoCSS
+        "antfu.unocss"
+    ]
+}

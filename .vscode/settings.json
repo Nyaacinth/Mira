@@ -1,0 +1,14 @@
+{
+    // General
+    "task.allowAutomaticTasks": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": { "source.organizeImports": true },
+    "editor.formatOnSave": true,
+    // Prettier
+    "prettier.ignorePath": ".gitignore",
+    // Svelte
+    "svelte.enable-ts-plugin": true,
+    "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
+    // TOML
+    "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" }
+}

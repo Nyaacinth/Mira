@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Run Tauri Application",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "pnpm dev:tauri"
+        }
+    ]
+}
