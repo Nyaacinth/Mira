@@ -17,7 +17,7 @@
                 "title": "Mira",
                 "width": 300,
                 "height": 500,
-                "resizable": true,
+                "resizable": false,
                 "fullscreen": false,
                 "titleBarStyle": "Overlay",
                 "transparent": true
