@@ -26,7 +26,7 @@
 </script>
 
 <div data-tauri-drag-region class="relative flex-1 justify-center items-center bg-#05774821">
-    <div class="absolute right--2 bottom--2 font-100 text-8xl text-#05774880">雨</div>
+    <div class="absolute right--2 bottom--2 font-100 text-8xl text-#05774844 pointer-events-none">雨</div>
     <button on:click={() => (paused = !paused)} class="p-8 text-6xl text-dark">
         {paused ? "▶" : "⏸"}
     </button>
