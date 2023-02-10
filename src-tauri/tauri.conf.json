@@ -11,15 +11,16 @@
         "withGlobalTauri": false
     },
     "tauri": {
+        "macOSPrivateApi": true,
         "windows": [
             {
                 "title": "Mira",
-                "width": 816,
-                "minWidth": 400,
-                "height": 624,
-                "minHeight": 300,
+                "width": 300,
+                "height": 500,
                 "resizable": true,
-                "fullscreen": false
+                "fullscreen": false,
+                "titleBarStyle": "Overlay",
+                "transparent": true
             }
         ],
         "allowlist": {
