@@ -11,7 +11,7 @@ export default defineConfig({
     clearScreen: false,
     envPrefix: ["VITE_", "TAURI_"],
     build: {
-        target: ["es2021", "chrome105", "safari13"]
+        target: ["es2022", "safari16"]
     },
     plugins: [
         Svelte({
