@@ -4,7 +4,6 @@
         "version": "../package.json"
     },
     "build": {
-        "beforeDevCommand": "pnpm check",
         "beforeBuildCommand": "pnpm build:vite",
         "devPath": "http://localhost:1420",
         "distDir": "../dist",
@@ -16,7 +15,7 @@
             {
                 "title": "Mira",
                 "width": 300,
-                "height": 500,
+                "height": 180,
                 "resizable": false,
                 "fullscreen": false,
                 "titleBarStyle": "Overlay",
