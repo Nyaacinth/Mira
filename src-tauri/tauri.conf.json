@@ -10,16 +10,13 @@
         "withGlobalTauri": false
     },
     "tauri": {
-        "macOSPrivateApi": true,
         "windows": [
             {
                 "title": "Mira",
                 "width": 300,
-                "height": 180,
-                "resizable": false,
+                "height": 500,
                 "fullscreen": false,
-                "titleBarStyle": "Overlay",
-                "transparent": true
+                "resizable": true
             }
         ],
         "allowlist": {
@@ -32,7 +29,7 @@
             "active": true,
             "identifier": "moe.nyaacinth.mira",
             "category": "Utility",
-            "shortDescription": "Mira Utility",
+            "shortDescription": "Mira Application",
             "icon": [
                 "icons/32x32.png",
                 "icons/128x128.png",

@@ -1,6 +1,5 @@
-import { svelte as Svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte"
+import { svelte as Svelte } from "@sveltejs/vite-plugin-svelte"
 import UnoCSS from "unocss/vite"
-import Icons from "unplugin-icons/vite"
 
 import { defineConfig } from "vite"
 
@@ -14,13 +13,5 @@ export default defineConfig({
     build: {
         target: ["es2022", "safari16"]
     },
-    plugins: [
-        Svelte({
-            preprocess: vitePreprocess()
-        }),
-        UnoCSS(),
-        Icons({
-            compiler: "svelte"
-        })
-    ]
+    plugins: [Svelte(), UnoCSS()]
 })
