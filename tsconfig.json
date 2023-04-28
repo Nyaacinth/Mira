@@ -7,7 +7,6 @@
         "moduleResolution": "Node",
         "strict": true,
         "useDefineForClassFields": true,
-        "importsNotUsedAsValues": "error",
         "sourceMap": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
