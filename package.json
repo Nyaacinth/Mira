@@ -13,9 +13,11 @@
     },
     "dependencies": {
         "@smui/button": "7.0.0-beta.4",
+        "@smui/card": "7.0.0-beta.4",
         "@smui/icon-button": "7.0.0-beta.4",
         "@smui/list": "7.0.0-beta.4",
         "@smui/menu": "7.0.0-beta.4",
+        "@smui/tooltip": "7.0.0-beta.4",
         "@tauri-apps/api": "^1.2.0",
         "@unocss/reset": "^0.51.8",
         "material-icons": "^1.13.5",

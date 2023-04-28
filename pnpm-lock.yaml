@@ -4,6 +4,9 @@ dependencies:
   '@smui/button':
     specifier: 7.0.0-beta.4
     version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
+  '@smui/card':
+    specifier: 7.0.0-beta.4
+    version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
   '@smui/icon-button':
     specifier: 7.0.0-beta.4
     version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
@@ -11,6 +14,9 @@ dependencies:
     specifier: 7.0.0-beta.4
     version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
   '@smui/menu':
+    specifier: 7.0.0-beta.4
+    version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
+  '@smui/tooltip':
     specifier: 7.0.0-beta.4
     version: 7.0.0-beta.4(svelte@3.58.0)(typescript@5.0.4)
   '@tauri-apps/api':
