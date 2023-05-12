@@ -28,7 +28,7 @@
         },
         "bundle": {
             "active": true,
-            "identifier": "moe.nyaacinth.mira",
+            "identifier": "work.nyaacinth.mira",
             "category": "Utility",
             "shortDescription": "Mira Application",
             "icon": [
