@@ -7,7 +7,8 @@
     import { onDestroy } from "svelte"
     import RainvillePlayer from "../models/RainvillePlayer"
 
-    export let className = ""
+    let className = ""
+    export { className as class }
     export let style = ""
 
     const player = new RainvillePlayer()
