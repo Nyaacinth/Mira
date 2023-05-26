@@ -34,8 +34,6 @@
     <div data-tauri-drag-region class="flex flex-col absolute w-100% h-100% justify-center items-center">
         <div class="material-icons text-6xl text-gray-500">cloud</div>
         <div class="pb-4" />
-        <span class="text-sm text-gray-600">且听细雨，勿湿衣襟</span>
-        <div class="pb-4" />
         <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (player.paused = !player.paused)}>
             {player.paused ? "play_circle_outline" : "pause_circle"}
         </IconButton>
