@@ -43,7 +43,7 @@
             class="w-35px h-7px rounded-100 bg-gray-600"
             on:click={() => (menuIsOpen = !menuIsOpen)}
             on:keypress={() => {
-                /** Never Triggered, exist only for a11y rules from svelte compiler */
+                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
             }}
         />
     </div>
@@ -56,7 +56,7 @@
                 if (event.detail == 1024 /** See ${workspaceFolder}/app/utils/clickOutside.ts */) menuIsOpen = false
             }}
             on:keypress={() => {
-                /** Never Triggered, exist only for a11y rules from svelte compiler */
+                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
             }}
         >
             <List>
