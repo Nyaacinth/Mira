@@ -13,7 +13,6 @@ export default class RainvillePlayer {
     get paused() {
         return this._paused
     }
-    /** Public Paused Status, set it will trigger handleChange() */
     set paused(value) {
         this._paused = value
         this.handleChange()
@@ -26,7 +25,6 @@ export default class RainvillePlayer {
     get trackNum() {
         return this._trackNum
     }
-    /** Public Track Number, set it will trigger handleChange() */
     set trackNum(value) {
         this._trackNum = value
         this.handleChange()
