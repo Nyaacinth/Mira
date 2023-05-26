@@ -1,80 +1,73 @@
 <script lang="ts">
-    import Button from "@smui/button"
-    import Card, { Actions as CardActions } from "@smui/card"
     import IconButton from "@smui/icon-button"
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
-    import Menu from "@smui/menu"
-    import Tooltip, { Wrapper as TooltipWrapper } from "@smui/tooltip"
-    import { onDestroy } from "svelte"
-    import { fade } from "svelte/transition"
-    import audioContext from "../assets/audio/audioContext"
-    import rainville from "../assets/audio/rainville"
+    import { onDestroy, onMount } from "svelte"
+    import { slide } from "svelte/transition"
+    import RainvillePlayer from "../models/RainvillePlayer"
+    import { clickOutside } from "../utils/clickOutside"
 
-    let menu: Menu // bind:this
+    const player = new RainvillePlayer()
 
-    let trackNum = 5
-    let paused = true
+    let menuIsOpen = false
 
-    let bufferSource = audioContext.createBufferSource()
-
-    $: {
-        if (bufferSource.buffer) bufferSource.stop()
-        bufferSource.disconnect()
-        if (!paused) {
-            bufferSource = audioContext.createBufferSource()
-            bufferSource.loop = true
-            bufferSource.buffer = rainville[trackNum][1]
-            bufferSource.connect(audioContext.destination)
-            bufferSource.start()
+    function handleKeyDown(event: KeyboardEvent) {
+        if (event.key == " ") {
+            player.paused = !player.paused
+        } else if (event.key == "Enter") {
+            menuIsOpen = true
+        } else if (event.key == "Escape") {
+            menuIsOpen = false
         }
     }
 
+    onMount(() => {
+        window.addEventListener("keydown", handleKeyDown)
+    })
+
     onDestroy(() => {
-        if (bufferSource.buffer) bufferSource.stop()
-        bufferSource.disconnect()
+        player.handleDestroy()
+        window.removeEventListener("keydown", handleKeyDown)
     })
 </script>
 
-<div data-tauri-drag-region class="relative h-100% flex flex-col bg-gray-300 justify-center items-center">
-    <div class="grid">
-        {#if paused}
-            <div class="material-icons p-8 text-6xl text-gray-500 grid-item" transition:fade>cloud</div>
-        {:else}
-            <div class="material-icons p-8 text-6xl text-gray-700 grid-item" transition:fade>cloud</div>
-        {/if}
+<div class="relative w-100% h-100% bg-gray-300">
+    <div data-tauri-drag-region class="flex flex-col absolute w-100% h-100% justify-center items-center">
+        <div class="material-icons text-6xl text-gray-500">cloud</div>
+        <div class="pb-4" />
+        <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (player.paused = !player.paused)}>
+            {player.paused ? "play_circle_outline" : "pause_circle"}
+        </IconButton>
     </div>
-    <Card class="rounded-100">
-        <CardActions>
-            <IconButton class="material-icons" on:click={() => (paused = !paused)}>
-                {paused ? "play_arrow" : "pause"}
-            </IconButton>
-            <div>
-                <Button variant="outlined" class="rounded-100" on:click={() => menu.setOpen(true)}>
-                    {rainville[trackNum][0]}
-                </Button>
-                <Menu bind:this={menu}>
-                    <List>
-                        {#each rainville as [trackName], index}
-                            <ListItem on:SMUI:action={() => (trackNum = index)}>
-                                <ListText>{trackName}</ListText>
-                            </ListItem>
-                        {/each}
-                    </List>
-                </Menu>
-            </div>
-        </CardActions>
-    </Card>
-    <TooltipWrapper>
-        <div class="material-icons absolute bottom-2 right-2 p-2 text-gray-500">info_outline</div>
-        <Tooltip xPos="start" yPos="above">且听细雨，勿湿衣襟</Tooltip>
-    </TooltipWrapper>
+    <div class="flex absolute bottom-0 p-1 w-100% justify-center items-center">
+        <div
+            class="w-35px h-7px rounded-100 bg-gray-600"
+            on:click={() => (menuIsOpen = !menuIsOpen)}
+            on:keypress={() => {
+                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
+            }}
+        />
+    </div>
+    {#if menuIsOpen}
+        <div
+            class="absolute bottom-0 w-100% h-50% overflow-scroll bg-white"
+            transition:slide={{ axis: "y" }}
+            use:clickOutside
+            on:click={(event) => {
+                if (event.detail == 1024 /** See ${workspaceFolder}/app/utils/clickOutside.ts */) menuIsOpen = false
+            }}
+            on:keypress={() => {
+                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
+            }}
+        >
+            <List>
+                {#each player.tracks as [trackName], index}
+                    <ListItem on:SMUI:action={() => (player.trackNum = index)}>
+                        <ListText class={player.trackNum == index ? "text-[var(--mdc-theme-primary)]" : ""}>
+                            {trackName}
+                        </ListText>
+                    </ListItem>
+                {/each}
+            </List>
+        </div>
+    {/if}
 </div>
-
-<style lang="scss">
-    .grid-item {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-</style>
