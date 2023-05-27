@@ -12,12 +12,8 @@
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
     "dependencies": {
-        "@smui/button": "7.0.0-beta.8",
-        "@smui/card": "7.0.0-beta.8",
         "@smui/icon-button": "7.0.0-beta.8",
         "@smui/list": "7.0.0-beta.8",
-        "@smui/menu": "7.0.0-beta.8",
-        "@smui/tooltip": "7.0.0-beta.8",
         "@tauri-apps/api": "^1.3.0",
         "@unocss/reset": "^0.52.3",
         "material-icons": "^1.13.7",
