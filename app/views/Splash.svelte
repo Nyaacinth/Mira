@@ -3,7 +3,7 @@
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
     import { onDestroy, onMount } from "svelte"
     import { slide } from "svelte/transition"
-    import RainvillePlayer from "../models/RainvillePlayer"
+    import { RainvillePlayer } from "../models/RainvillePlayer"
     import { clickOutside } from "../utils/clickOutside"
 
     const player = new RainvillePlayer()

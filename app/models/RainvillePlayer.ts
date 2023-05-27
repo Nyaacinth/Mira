@@ -2,7 +2,7 @@ import audioContext from "../assets/audio/audioContext"
 import rainville from "../assets/audio/rainville"
 
 /** Rainville Player Class */
-export default class RainvillePlayer {
+export class RainvillePlayer {
     /** Current Buffer Source, will be overwritten when handling change */
     private currentBufferSource = audioContext.createBufferSource()
 
