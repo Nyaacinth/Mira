@@ -1,22 +1,10 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@smui/button':
-    specifier: 7.0.0-beta.8
-    version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
-  '@smui/card':
-    specifier: 7.0.0-beta.8
-    version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
   '@smui/icon-button':
     specifier: 7.0.0-beta.8
     version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
   '@smui/list':
-    specifier: 7.0.0-beta.8
-    version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
-  '@smui/menu':
-    specifier: 7.0.0-beta.8
-    version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
-  '@smui/tooltip':
     specifier: 7.0.0-beta.8
     version: 7.0.0-beta.8(svelte@3.59.1)(typescript@5.0.4)
   '@tauri-apps/api':

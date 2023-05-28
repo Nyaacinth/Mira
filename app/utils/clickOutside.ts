@@ -1,12 +1,8 @@
-/** Simple use directive to detect clicking outside, the on:click will be triggered with detail 1024 */
+/** Simple use directive to detect clicking outside, the event `outclick` will be triggered */
 export function clickOutside(node: HTMLElement) {
-    const handleClick = (event: any) => {
-        if (!node.contains(event.target)) {
-            node.dispatchEvent(
-                new CustomEvent("click", {
-                    detail: 1024
-                })
-            )
+    const handleClick = (event: MouseEvent) => {
+        if (!node.contains(event.target as any)) {
+            node.dispatchEvent(new CustomEvent("outclick"))
         }
     }
 
