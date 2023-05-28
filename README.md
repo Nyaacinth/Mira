@@ -19,6 +19,6 @@ _点滴到天明。_
 
 ## 下载及安装
 
-请见 https://github.com/Nyaacinth/Ringo/releases
+请见 https://github.com/Nyaacinth/Mira/releases
 
 请注意本品仅适用于 macOS Big Sur 及以上版本
