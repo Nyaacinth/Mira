@@ -28,13 +28,23 @@
         }
     }
 
+    function handleScroll() {
+        if (window.scrollY > 8) {
+            menuIsOpen = true
+        } else if (window.scrollY < -8) {
+            menuIsOpen = false
+        }
+    }
+
     onMount(() => {
         window.addEventListener("keydown", handleKeyDown)
+        window.addEventListener("wheel", handleScroll)
     })
 
     onDestroy(() => {
         player.handleDestroy()
         window.removeEventListener("keydown", handleKeyDown)
+        window.removeEventListener("wheel", handleScroll)
     })
 </script>
 
