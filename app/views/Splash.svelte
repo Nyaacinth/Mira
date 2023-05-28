@@ -6,6 +6,14 @@
     import { RainvillePlayer } from "../models/RainvillePlayer"
     import { clickOutside } from "../utils/clickOutside"
 
+    let menuElement: HTMLDivElement // bind:this
+
+    $: if (menuElement) {
+        menuElement.addEventListener("outclick", () => {
+            menuIsOpen = false
+        })
+    }
+
     const player = new RainvillePlayer()
 
     let menuIsOpen = false
@@ -39,25 +47,16 @@
         </IconButton>
     </div>
     <div class="flex absolute bottom-0 p-1 w-100% justify-center items-center">
-        <div
-            class="w-35px h-7px rounded-100 bg-gray-600"
-            on:click={() => (menuIsOpen = !menuIsOpen)}
-            on:keypress={() => {
-                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
-            }}
-        />
+        <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (menuIsOpen = !menuIsOpen)}>
+            keyboard_arrow_up
+        </IconButton>
     </div>
     {#if menuIsOpen}
         <div
+            bind:this={menuElement}
             class="absolute bottom-0 w-100% h-50% overflow-scroll bg-white"
             transition:slide={{ axis: "y" }}
             use:clickOutside
-            on:click={(event) => {
-                if (event.detail == 1024 /** See ${workspaceFolder}/app/utils/clickOutside.ts */) menuIsOpen = false
-            }}
-            on:keypress={() => {
-                /** Never Triggered, exist only for a11y rules from svelte compiler, a11y will be handled by handleKeyDown */
-            }}
         >
             <List>
                 {#each player.tracks as [trackName], index}
