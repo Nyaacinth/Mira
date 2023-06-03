@@ -1,8 +1,8 @@
-import presetRemToPx from "@unocss/preset-rem-to-px"
+import presetPxToRem from "@nyaacinth/unocss-preset-px-to-rem"
 import presetWind from "@unocss/preset-wind"
 
 import { defineConfig } from "unocss"
 
 export default defineConfig({
-    presets: [presetWind(), presetRemToPx()]
+    presets: [presetWind(), presetPxToRem()]
 })
