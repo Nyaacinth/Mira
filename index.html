@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="./app/index.ts"></script>
         <title>Mira</title>
+        <meta name="description" content="Mira Rainy Emulator" />
+        <link rel="apple-touch-icon" href="./app/assets/images/apple-touch-icon.png" sizes="1024x1024" />
+        <meta name="theme-color" content="#d1d5db" />
     </head>
     <body>
         <div id="app"></div>
@@ -14,6 +17,11 @@
         body,
         #app {
             height: 100%;
+        }
+        @media (min-width: 320px) and (max-width: 959px) {
+            html {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </html>
