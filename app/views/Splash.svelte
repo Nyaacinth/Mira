@@ -47,16 +47,26 @@
             >
                 <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-white" transition:slide={{ axis: "y" }}>
                     <List>
-                        {#each player.tracks as [trackName], index}
-                            <ListItem on:SMUI:action={() => (player.trackNum = index)}>
-                                <ListText class={player.trackNum == index ? "text-[var(--mdc-theme-primary)]" : ""}>
-                                    {trackName}
-                                </ListText>
-                            </ListItem>
-                        {/each}
+                        <div class="em-fit-mobile">
+                            {#each player.tracks as [trackName], index}
+                                <ListItem on:SMUI:action={() => (player.trackNum = index)}>
+                                    <ListText class={player.trackNum == index ? "text-[var(--mdc-theme-primary)]" : ""}>
+                                        {trackName}
+                                    </ListText>
+                                </ListItem>
+                            {/each}
+                        </div>
                     </List>
                 </div>
             </ClickOutside>
         {/if}
     {/await}
 </div>
+
+<style>
+    @media (min-width: 320px) and (max-width: 959px) {
+        .em-fit-mobile {
+            font-size: 0.75rem;
+        }
+    }
+</style>
