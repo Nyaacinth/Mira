@@ -11,6 +11,12 @@
             }
         },
         {
+            "label": "Build PWA",
+            "type": "npm",
+            "script": "build-pwa:vite",
+            "group": "build"
+        },
+        {
             "label": "Build Tauri Application",
             "type": "npm",
             "script": "build:tauri",
