@@ -29,6 +29,7 @@ export default defineConfig(() => {
                           short_name: "Mira",
                           description: "Rainy",
                           theme_color: "#d1d5db",
+                          background_color: "#ffffff",
                           icons: [
                               {
                                   src: "pwa-icon-192x192.png",
