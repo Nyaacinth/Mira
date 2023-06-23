@@ -29,17 +29,24 @@ export default defineConfig(() => {
                           short_name: "Mira",
                           description: "Rainy",
                           theme_color: "#d1d5db",
-                          background_color: "#ffffff",
                           icons: [
                               {
                                   src: "pwa-icon-192x192.png",
                                   sizes: "192x192",
-                                  type: "image/png"
+                                  type: "image/png",
+                                  purpose: "maskable"
                               },
                               {
                                   src: "pwa-icon-512x512.png",
                                   sizes: "512x512",
-                                  type: "image/png"
+                                  type: "image/png",
+                                  purpose: "maskable"
+                              },
+                              {
+                                  src: "pwa-icon-1024x1024.png",
+                                  sizes: "1024x1024",
+                                  type: "image/png",
+                                  purpose: "maskable"
                               }
                           ]
                       },
