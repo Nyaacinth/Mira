@@ -2,8 +2,7 @@
     import IconButton from "@smui/icon-button"
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
     import { onDestroy } from "svelte"
-    import { slide } from "svelte/transition"
-    import ClickOutside from "../components/ClickOutside.svelte"
+    import { fade, slide } from "svelte/transition"
     import { getRainvillePlayer } from "../models/RainvillePlayer"
 
     const playerPromise = getRainvillePlayer()
@@ -30,20 +29,24 @@
                 />
             </svg>
             <div class="pb-4" />
-            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (player.paused = !player.paused)}>
+            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (player.paused = !player.paused)} disabled={menuIsOpen}>
                 {player.paused ? "play_circle_outline" : "pause_circle"}
             </IconButton>
         </div>
         <div class="flex absolute bottom-0 p-1 w-100% justify-center items-center">
-            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (menuIsOpen = !menuIsOpen)}>
+            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (menuIsOpen = !menuIsOpen)} disabled={menuIsOpen}>
                 keyboard_arrow_up
             </IconButton>
         </div>
         {#if menuIsOpen}
-            <ClickOutside
-                on:click-outside={() => {
-                    menuIsOpen = false
-                }}
+            <div
+                data-tauri-drag-region
+                class="absolute w-100% h-100% bg-[#00000033] focus:bg-[#00000066]"
+                role="button"
+                tabindex={0}
+                on:keypress={(event) => event.key == "Enter" && (menuIsOpen = false)}
+                on:click={() => (menuIsOpen = false)}
+                transition:fade
             >
                 <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-white" transition:slide={{ axis: "y" }}>
                     <List>
@@ -59,7 +62,7 @@
                         {/each}
                     </List>
                 </div>
-            </ClickOutside>
+            </div>
         {/if}
     {/await}
 </div>
