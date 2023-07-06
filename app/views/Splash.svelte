@@ -42,6 +42,7 @@
             <div
                 data-tauri-drag-region
                 class="absolute w-100% h-100% bg-[#00000033] focus:bg-[#00000066]"
+                style:-webkit-tap-highlight-color="#00000000"
                 role="button"
                 tabindex={0}
                 on:keypress={(event) => event.key == "Enter" && (menuIsOpen = false)}
