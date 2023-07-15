@@ -6,7 +6,7 @@
     "build": {
         "devPath": ".",
         "distDir": ".",
-        "withGlobalTauri": false
+        "withGlobalTauri": true
     },
     "tauri": {
         "windows": [
@@ -16,7 +16,8 @@
                 "height": 500,
                 "titleBarStyle": "Overlay",
                 "fullscreen": false,
-                "resizable": true
+                "resizable": true,
+                "visible": false
             }
         ],
         "allowlist": {

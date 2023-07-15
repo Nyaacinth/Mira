@@ -7,6 +7,7 @@ export default mergeConfig(
     baseViteConfig,
     defineConfig({
         server: { open: false },
+        build: { target: ["es2021", "chrome105", "safari13"] },
         clearScreen: false,
         plugins: [Tauri()]
     })
