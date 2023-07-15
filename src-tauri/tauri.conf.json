@@ -4,10 +4,9 @@
         "version": "../package.json"
     },
     "build": {
-        "beforeBuildCommand": "pnpm build:vite",
-        "devPath": "http://localhost:1420",
-        "distDir": "../dist",
-        "withGlobalTauri": false
+        "devPath": ".",
+        "distDir": ".",
+        "withGlobalTauri": true
     },
     "tauri": {
         "windows": [
@@ -17,7 +16,8 @@
                 "height": 500,
                 "titleBarStyle": "Overlay",
                 "fullscreen": false,
-                "resizable": true
+                "resizable": true,
+                "visible": false
             }
         ],
         "allowlist": {

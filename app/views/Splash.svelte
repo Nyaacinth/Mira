@@ -29,12 +29,20 @@
                 />
             </svg>
             <div class="pb-4" />
-            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (player.paused = !player.paused)} disabled={menuIsOpen}>
+            <IconButton
+                class="material-icons text-3xl text-gray-500"
+                on:click={() => (player.paused = !player.paused)}
+                disabled={menuIsOpen}
+            >
                 {player.paused ? "play_circle_outline" : "pause_circle"}
             </IconButton>
         </div>
         <div class="flex absolute bottom-0 p-1 w-100% justify-center items-center">
-            <IconButton class="material-icons text-3xl text-gray-500" on:click={() => (menuIsOpen = !menuIsOpen)} disabled={menuIsOpen}>
+            <IconButton
+                class="material-icons text-3xl text-gray-500"
+                on:click={() => (menuIsOpen = !menuIsOpen)}
+                disabled={menuIsOpen}
+            >
                 keyboard_arrow_up
             </IconButton>
         </div>
@@ -42,6 +50,7 @@
             <div
                 data-tauri-drag-region
                 class="absolute w-100% h-100% bg-[#00000033] focus:bg-[#00000066]"
+                style:-webkit-tap-highlight-color="#00000000"
                 role="button"
                 tabindex={0}
                 on:keypress={(event) => event.key == "Enter" && (menuIsOpen = false)}
