@@ -8,7 +8,7 @@
         "dev:vite": "vite",
         "dev:tauri": "tauri dev",
         "build:vite": "vite build",
-        "build-pwa:vite": "MIRA_BUILD_MODE='PWA' vite build",
+        "build-pwa:vite": "vite build --config vite.pwa.config.js",
         "build:tauri": "tauri build",
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
