@@ -31,13 +31,8 @@ jobs:
                   sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
             - name: install app dependencies and build it
               run: pnpm i && pnpm build:tauri
-            - uses: tauri-apps/tauri-action@v0
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: upload artifacts
+              uses: actions/upload-artifact@v3
               with:
-                  tauriScript: "pnpm run tauri:build"
-                  tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
-                  releaseName: "App v__VERSION__"
-                  releaseBody: "See the assets to download this version and install."
-                  releaseDraft: true
-                  prerelease: false
+                  name: dmg-artifact
+                  path: src-tauri/target/release/bundle/dmg/*.dmg
