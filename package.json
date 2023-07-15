@@ -3,13 +3,13 @@
     "private": true,
     "version": "2.4.0",
     "type": "module",
-    "packageManager": "pnpm@8.6.3",
+    "packageManager": "pnpm@8.6.7",
     "scripts": {
         "dev:vite": "vite",
-        "dev:tauri": "tauri dev",
+        "dev:tauri": "vite dev --config vite.tauri.config.js",
         "build:vite": "vite build",
         "build-pwa:vite": "vite build --config vite.pwa.config.js",
-        "build:tauri": "tauri build",
+        "build:tauri": "vite build --config vite.tauri.config.js",
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
     "dependencies": {
@@ -33,6 +33,7 @@
         "typescript": "^5.1.6",
         "unocss": "^0.53.4",
         "vite": "^4.3.9",
-        "vite-plugin-pwa": "^0.16.4"
+        "vite-plugin-pwa": "^0.16.4",
+        "vite-plugin-tauri": "^3.3.0"
     }
 }

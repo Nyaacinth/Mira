@@ -4,9 +4,8 @@
         "version": "../package.json"
     },
     "build": {
-        "beforeBuildCommand": "pnpm build:vite",
-        "devPath": "http://localhost:1420",
-        "distDir": "../dist",
+        "devPath": ".",
+        "distDir": ".",
         "withGlobalTauri": false
     },
     "tauri": {

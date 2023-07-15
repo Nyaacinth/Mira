@@ -6,9 +6,7 @@
             "type": "npm",
             "script": "dev:vite",
             "isBackground": true,
-            "runOptions": {
-                "runOn": "folderOpen"
-            }
+            "group": "build"
         },
         {
             "label": "Build PWA",

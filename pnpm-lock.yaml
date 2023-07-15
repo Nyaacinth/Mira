@@ -64,6 +64,9 @@ devDependencies:
   vite-plugin-pwa:
     specifier: ^0.16.4
     version: 0.16.4(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
+  vite-plugin-tauri:
+    specifier: ^3.3.0
+    version: 3.3.0(@tauri-apps/cli@1.4.0)(vite@4.3.9)
 
 packages:
 
@@ -3709,6 +3712,17 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
+  /fast-glob@3.2.12:
+    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: true
+
   /fast-glob@3.3.0:
     resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
     engines: {node: '>=8.6.0'}
@@ -5202,6 +5216,18 @@ packages:
       workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite-plugin-tauri@3.3.0(@tauri-apps/cli@1.4.0)(vite@4.3.9):
+    resolution: {integrity: sha512-3Q3QL117toNSRZMY9LW6DjIgf44JixG/F4sl6vLwh/JYMPeLslp/8fu79sx7ldzE6KI+eAxJ5pQm19tunEVgvg==}
+    engines: {node: '>=14.6.0'}
+    peerDependencies:
+      '@tauri-apps/cli': '>= 1'
+      vite: '>= 2'
+    dependencies:
+      '@tauri-apps/cli': 1.4.0
+      fast-glob: 3.2.12
+      vite: 4.3.9(sass@1.63.6)
     dev: true
 
   /vite@4.3.9(sass@1.63.6):
