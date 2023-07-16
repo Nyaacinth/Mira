@@ -13,6 +13,7 @@ export default Promise.all(
     () =>
         [
             ["深邃", audioBuffers[0]],
+            ["隆隆", audioBuffers[1]],
             ["乌云", audioBuffers[2]],
             ["夏日", audioBuffers[3]],
             ["点滴", audioBuffers[4]],
