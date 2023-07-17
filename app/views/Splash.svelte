@@ -3,9 +3,9 @@
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
     import { onDestroy } from "svelte"
     import { fade, slide } from "svelte/transition"
-    import { getRainvillePlayer } from "../models/RainvillePlayer"
+    import { createRainvillePlayer } from "../models/RainvillePlayer"
 
-    const playerPromise = getRainvillePlayer()
+    const playerPromise = createRainvillePlayer()
 
     let menuIsOpen = false
 
@@ -49,7 +49,7 @@
         {#if menuIsOpen}
             <div
                 data-tauri-drag-region
-                class="absolute w-100% h-100% bg-[#00000033] focus:bg-[#00000066]"
+                class="absolute w-100% h-100% bg-[#00103033] focus:bg-[#00103066]"
                 style:-webkit-tap-highlight-color="#00000000"
                 role="button"
                 tabindex={0}
@@ -57,7 +57,10 @@
                 on:click={() => (menuIsOpen = false)}
                 transition:fade
             >
-                <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-white" transition:slide={{ axis: "y" }}>
+                <div
+                    class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026]"
+                    transition:slide={{ axis: "y" }}
+                >
                     <List>
                         {#each player.tracks as [trackName], index}
                             <ListItem
