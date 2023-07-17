@@ -3,9 +3,9 @@
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
     import { onDestroy } from "svelte"
     import { fade, slide } from "svelte/transition"
-    import { getRainvillePlayer } from "../models/RainvillePlayer"
+    import { createRainvillePlayer } from "../models/RainvillePlayer"
 
-    const playerPromise = getRainvillePlayer()
+    const playerPromise = createRainvillePlayer()
 
     let menuIsOpen = false
 

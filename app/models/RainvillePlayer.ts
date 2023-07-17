@@ -1,70 +1,76 @@
 import audioContext from "../assets/audio/audioContext"
 import rainvillePromise from "../assets/audio/rainville"
 
-/**
- * Get Rainville Player Instance
- * @description It awaits `rainvillePromise` and uses `new RainvillePlayer()` internally
- */
-export async function getRainvillePlayer() {
-    const rainville = await rainvillePromise
+/** Rainville Player Class */
+export class RainvillePlayer {
+    /** Rainville Assets */
+    private rainville: Awaited<typeof rainvillePromise>
 
-    /** Rainville Player Class */
-    class RainvillePlayer {
-        /** Current Buffer Source, will be overwritten when handling change */
-        private currentBufferSource = audioContext.createBufferSource()
+    constructor(rainville: Awaited<typeof rainvillePromise>) {
+        this.rainville = rainville
+    }
 
-        /** Private Paused Status */
-        private _paused = true
+    /** Current Buffer Source, will be overwritten when handling change */
+    private currentBufferSource = audioContext.createBufferSource()
 
-        /** Public Paused Status, set it will trigger handleChange() */
-        get paused() {
-            return this._paused
-        }
-        set paused(value) {
-            this._paused = value
-            this.handleChange()
-        }
+    /** Private Paused Status */
+    private _paused = true
 
-        /** Private Track Number */
-        private _trackNum = 5
+    /** Public Paused Status, set it will trigger handleChange() */
+    get paused() {
+        return this._paused
+    }
+    set paused(value) {
+        this._paused = value
+        this.handleChange()
+    }
 
-        /** Public Track Number, set it will trigger handleChange() */
-        get trackNum() {
-            return this._trackNum
-        }
-        set trackNum(value) {
-            this._trackNum = value
-            this.handleChange()
-        }
+    /** Private Track Number */
+    private _trackNum = 5
 
-        /** Current Track Object */
-        get currentTrack() {
-            return rainville[this._trackNum]
-        }
+    /** Public Track Number, set it will trigger handleChange() */
+    get trackNum() {
+        return this._trackNum
+    }
+    set trackNum(value) {
+        this._trackNum = value
+        this.handleChange()
+    }
 
-        /** All Playable Track */
-        get tracks() {
-            return rainville
-        }
+    /** Current Track Object */
+    get currentTrack() {
+        return this.rainville[this._trackNum]
+    }
 
-        /** Change Handler, it will overwrite currentBufferSource and restart it to change the track, uses handleDestory internally */
-        private handleChange() {
-            this.handleDestroy()
-            if (!this._paused) {
-                this.currentBufferSource = audioContext.createBufferSource()
-                this.currentBufferSource.loop = true
-                this.currentBufferSource.buffer = rainville[this._trackNum][1]
-                this.currentBufferSource.connect(audioContext.destination)
-                this.currentBufferSource.start()
-            }
-        }
+    /** All Playable Track */
+    get tracks() {
+        return this.rainville
+    }
 
-        /** Player Destory Handler, you must call it to stop the rain sound and free the memory */
-        handleDestroy() {
-            if (this.currentBufferSource.buffer) this.currentBufferSource.stop()
-            this.currentBufferSource.disconnect()
+    /** Change Handler, it will overwrite currentBufferSource and restart it to change the track, uses handleDestory internally */
+    private handleChange() {
+        this.handleDestroy()
+        if (!this._paused) {
+            this.currentBufferSource = audioContext.createBufferSource()
+            this.currentBufferSource.loop = true
+            this.currentBufferSource.buffer = this.rainville[this._trackNum][1]
+            this.currentBufferSource.connect(audioContext.destination)
+            this.currentBufferSource.start()
         }
     }
 
-    return new RainvillePlayer()
+    /** Player Destory Handler, you must call it to stop the rain sound and free the memory */
+    handleDestroy() {
+        if (this.currentBufferSource.buffer) this.currentBufferSource.stop()
+        this.currentBufferSource.disconnect()
+    }
+}
+
+/**
+ * Get Rainville Player Instance
+ * @description It awaits `rainvillePromise` and uses `new RainvillePlayer(rainville)` internally
+ */
+export async function createRainvillePlayer() {
+    const rainville = await rainvillePromise
+    return new RainvillePlayer(rainville)
 }
