@@ -3,6 +3,7 @@
     import List, { Item as ListItem, Text as ListText } from "@smui/list"
     import { onDestroy } from "svelte"
     import { fade, slide } from "svelte/transition"
+    import { i18n } from "../assets/translations"
     import { createRainvillePlayer } from "../models/RainvillePlayer"
 
     const playerPromise = createRainvillePlayer()
@@ -68,7 +69,7 @@
                                 on:SMUI:action={() => (player.trackNum = index)}
                             >
                                 <ListText class={player.trackNum == index ? "text-[var(--mdc-theme-primary)]" : ""}>
-                                    {trackName}
+                                    {$i18n.t(trackName)}
                                 </ListText>
                             </ListItem>
                         {/each}
