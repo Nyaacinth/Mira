@@ -12,15 +12,15 @@ export default Promise.all(
 ).then(
     () =>
         [
-            ["深邃", audioBuffers[0]],
-            ["隆隆", audioBuffers[1]],
-            ["乌云", audioBuffers[2]],
-            ["夏日", audioBuffers[3]],
-            ["点滴", audioBuffers[4]],
-            ["清润", audioBuffers[5]],
-            ["都市", audioBuffers[6]],
-            ["阳台", audioBuffers[7]],
-            ["淅沥", audioBuffers[8]],
-            ["噪音", audioBuffers[9]]
+            ["audio0Label", audioBuffers[0]],
+            ["audio1Label", audioBuffers[1]],
+            ["audio2Label", audioBuffers[2]],
+            ["audio3Label", audioBuffers[3]],
+            ["audio4Label", audioBuffers[4]],
+            ["audio5Label", audioBuffers[5]],
+            ["audio6Label", audioBuffers[6]],
+            ["audio7Label", audioBuffers[7]],
+            ["audio8Label", audioBuffers[8]],
+            ["audio9Label", audioBuffers[9]]
         ] as const
 )
