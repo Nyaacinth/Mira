@@ -6,10 +6,10 @@
     "packageManager": "pnpm@8.6.9",
     "scripts": {
         "dev:vite": "vite",
-        "dev:tauri": "vite dev --config vite.tauri.config.js",
+        "dev:tauri": "vite dev --config vite.tauri.config.ts",
         "build:vite": "vite build",
-        "build-pwa:vite": "vite build --config vite.pwa.config.js",
-        "build:tauri": "vite build --config vite.tauri.config.js",
+        "build:pwa": "vite build --config vite.pwa.config.ts",
+        "build:tauri": "vite build --config vite.tauri.config.ts",
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
     "dependencies": {
