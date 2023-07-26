@@ -16,10 +16,8 @@
     }
 
     onMount(() => {
-        if ((window as typeof window & { __TAURI__: unknown }).__TAURI__) {
-            tauriWindow.appWindow.show()
-            tauriWindow.appWindow.setFocus()
-        }
+        tauriWindow.appWindow.show().catch(() => undefined /* Ignore */)
+        tauriWindow.appWindow.setFocus().catch(() => undefined /* Ignore */)
     })
 </script>
 

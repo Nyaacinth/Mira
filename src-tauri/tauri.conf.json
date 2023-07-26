@@ -6,7 +6,7 @@
     "build": {
         "devPath": ".",
         "distDir": ".",
-        "withGlobalTauri": true
+        "withGlobalTauri": false
     },
     "tauri": {
         "windows": [
