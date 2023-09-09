@@ -3,7 +3,6 @@
     "private": true,
     "version": "2.4.3",
     "type": "module",
-    "packageManager": "pnpm@8.6.9",
     "scripts": {
         "dev:vite": "vite",
         "dev:tauri": "vite dev --config vite.tauri.config.ts",
@@ -13,28 +12,28 @@
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
     "dependencies": {
-        "@smui/icon-button": "7.0.0-beta.14",
-        "@smui/list": "7.0.0-beta.14",
+        "@smui/icon-button": "7.0.0-beta.15",
+        "@smui/list": "7.0.0-beta.15",
         "@tauri-apps/api": "^1.4.0",
-        "@unocss/reset": "^0.53.6",
-        "i18next": "^23.2.11",
-        "material-icons": "^1.13.9",
-        "svelte-material-ui": "7.0.0-beta.14",
+        "@unocss/reset": "^0.55.7",
+        "i18next": "^23.5.1",
+        "material-icons": "^1.13.11",
+        "svelte-material-ui": "7.0.0-beta.15",
         "svelte-spa-router": "^3.3.0"
     },
     "devDependencies": {
         "@nyaacinth/unocss-preset-px-to-rem": "^0.0.1",
-        "@sveltejs/vite-plugin-svelte": "^2.4.2",
+        "@sveltejs/vite-plugin-svelte": "^2.4.5",
         "@tauri-apps/cli": "^1.4.0",
-        "@unocss/preset-wind": "^0.53.6",
-        "prettier": "^3.0.0",
-        "sass": "^1.64.1",
-        "svelte": "^4.1.1",
-        "svelte-check": "^3.4.6",
-        "typescript": "^5.1.6",
-        "unocss": "^0.53.6",
-        "vite": "^4.4.6",
-        "vite-plugin-pwa": "^0.16.4",
+        "@unocss/preset-wind": "^0.55.7",
+        "prettier": "^3.0.3",
+        "sass": "^1.66.1",
+        "svelte": "^4.2.0",
+        "svelte-check": "^3.5.1",
+        "typescript": "^5.2.2",
+        "unocss": "^0.55.7",
+        "vite": "^4.4.9",
+        "vite-plugin-pwa": "^0.16.5",
         "vite-plugin-tauri": "^3.3.0"
     }
 }

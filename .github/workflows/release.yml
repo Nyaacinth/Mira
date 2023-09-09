@@ -19,9 +19,11 @@ jobs:
             - name: setup node
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v2.2.4
+                  node-version: latest
+            - name: setup bun
+              uses: oven-sh/setup-bun@v1
+              with:
+                  bun-version: latest
             - name: install Rust stable
               uses: dtolnay/rust-toolchain@stable
             - name: install dependencies (ubuntu only)
@@ -30,7 +32,7 @@ jobs:
                   sudo apt-get update
                   sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
             - name: install app dependencies and build it
-              run: pnpm i && pnpm build:tauri
+              run: bun i && bun run build:tauri
             - name: upload artifacts
               uses: actions/upload-artifact@v3
               with:
