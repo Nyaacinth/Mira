@@ -1,0 +1,30 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": ["@typescript-eslint", "solid"],
+    "rules": {
+        "@typescript-eslint/adjacent-overload-signatures": "warn",
+        "@typescript-eslint/no-extra-non-null-assertion": "warn",
+        "@typescript-eslint/no-inferrable-types": "warn",
+        "@typescript-eslint/no-loss-of-precision": "warn",
+        "@typescript-eslint/no-misused-new": "warn",
+        "@typescript-eslint/no-this-alias": "warn",
+        "@typescript-eslint/prefer-as-const": "warn",
+        "@typescript-eslint/prefer-namespace-keyword": "warn",
+        "@typescript-eslint/ban-types": "warn",
+        "solid/components-return-once": "warn",
+        "solid/event-handlers": "warn",
+        "solid/jsx-no-script-url": "warn",
+        "solid/no-destructure": "warn",
+        "solid/no-innerhtml": "warn",
+        "solid/prefer-for": "warn",
+        "solid/prefer-show": "warn",
+        "solid/reactivity": "warn",
+        "solid/self-closing-comp": "warn"
+    }
+}

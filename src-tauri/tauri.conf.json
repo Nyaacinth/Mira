@@ -1,0 +1,60 @@
+{
+    "package": {
+        "productName": "Mira",
+        "version": "../package.json"
+    },
+    "build": {
+        "devPath": ".",
+        "distDir": ".",
+        "withGlobalTauri": false
+    },
+    "tauri": {
+        "windows": [
+            {
+                "title": "Mira",
+                "width": 300,
+                "height": 500,
+                "titleBarStyle": "Overlay",
+                "hiddenTitle": true,
+                "fullscreen": false,
+                "resizable": true,
+                "visible": true
+            }
+        ],
+        "allowlist": {
+            "all": true
+        },
+        "security": {
+            "csp": null
+        },
+        "bundle": {
+            "active": true,
+            "identifier": "work.nyaacinth.mira",
+            "category": "Utility",
+            "shortDescription": "Mira App",
+            "icon": [
+                "icons/32x32.png",
+                "icons/128x128.png",
+                "icons/128x128@2x.png",
+                "icons/icon.icns",
+                "icons/icon.ico"
+            ],
+            "targets": "all",
+            "macOS": {
+                "entitlements": null,
+                "exceptionDomain": "",
+                "frameworks": [],
+                "providerShortName": null,
+                "signingIdentity": null
+            },
+            "windows": {
+                "certificateThumbprint": null,
+                "digestAlgorithm": "sha256",
+                "timestampUrl": ""
+            }
+        },
+        "updater": {
+            "active": false
+        }
+    }
+}

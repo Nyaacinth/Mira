@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "noEmit": true,
+        "target": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "useDefineForClassFields": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noUncheckedIndexedAccess": true,
+        "noFallthroughCasesInSwitch": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "typeRoots": ["types"]
+    }
+}

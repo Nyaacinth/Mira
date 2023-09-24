@@ -1,0 +1,37 @@
+{
+    "name": "mira",
+    "private": true,
+    "version": "2.5.0",
+    "type": "module",
+    "scripts": {
+        "dev:vite": "vite",
+        "dev:tauri": "vite --config vite.tauri.config.ts",
+        "build:vite": "vite build",
+        "build:pwa": "vite build --config vite.pwa.config.ts",
+        "build:tauri": "vite build --config vite.tauri.config.ts"
+    },
+    "dependencies": {
+        "@solidjs/router": "^0.8.3",
+        "@tauri-apps/api": "^1.4.0",
+        "@unocss/reset": "^0.56.1",
+        "i18next": "^23.5.1",
+        "solid-js": "^1.7.12",
+        "solid-transition-group": "^0.2.3"
+    },
+    "devDependencies": {
+        "@tauri-apps/cli": "^1.4.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.2",
+        "@typescript-eslint/parser": "^6.7.2",
+        "@unocss/preset-wind": "^0.56.1",
+        "eslint": "^8.50.0",
+        "eslint-plugin-solid": "^0.13.0",
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2",
+        "unocss": "^0.56.1",
+        "vite": "^4.4.9",
+        "vite-plugin-checker": "^0.6.2",
+        "vite-plugin-pwa": "^0.16.5",
+        "vite-plugin-solid": "^2.7.0",
+        "vite-plugin-tauri": "^3.3.0"
+    }
+}

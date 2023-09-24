@@ -1,0 +1,40 @@
+name: "publish"
+on:
+    push:
+        branches:
+            - release
+
+jobs:
+    publish-tauri:
+        permissions:
+            contents: write
+        strategy:
+            fail-fast: false
+            matrix:
+                platform: [macos-latest]
+
+        runs-on: ${{ matrix.platform }}
+        steps:
+            - uses: actions/checkout@v3
+            - name: setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: latest
+            - name: setup bun
+              uses: oven-sh/setup-bun@v1
+              with:
+                  bun-version: latest
+            - name: install Rust stable
+              uses: dtolnay/rust-toolchain@stable
+            - name: install dependencies (ubuntu only)
+              if: matrix.platform == 'ubuntu-20.04'
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+            - name: install app dependencies and build it
+              run: bun i && bun run build:tauri
+            - name: upload artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: dmg-artifact
+                  path: src-tauri/target/release/bundle/dmg/*.dmg
