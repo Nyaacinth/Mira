@@ -112,15 +112,15 @@ export const Splash: Component = () => {
                                 tabindex={0}
                                 onClick={() => setMenuIsOpened(false)}
                             >
-                                <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] px-2 mobile:px-3 py-2.5 mobile:py-3.75">
+                                <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] px-2 mobile:px-2.5 py-2.5 mobile:py-3.125">
                                     <For each={rainvillePlayerResource.latest!.tracks}>
                                         {(track, index) => (
                                             <div
                                                 role="button"
-                                                class="px-2 mobile:px-3 py-2.5 mobile:py-3.75"
+                                                class="px-2 mobile:px-2.5 py-2.5 mobile:py-3.125"
                                                 onClick={() => (rainvillePlayerResource.latest!.trackNum = index())}
                                             >
-                                                <span class="text-gray-700 font-300 text-1rem mobile:text-1.5rem">
+                                                <span class="text-gray-700 font-300 text-16px mobile:text-20px">
                                                     {i18n().t(track[0])}
                                                 </span>
                                             </div>
