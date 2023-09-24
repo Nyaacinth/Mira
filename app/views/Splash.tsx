@@ -9,7 +9,7 @@ import { createRainvillePlayer } from "../models/RainvillePlayer"
 
 const LoadingSpinner: Component = () => (
     <div class="flex absolute w-100% h-100% justify-center items-center">
-        <div class="w-10 h-10 border-5 rounded-50% border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin animate-duration-1000" />
+        <div class="w-10 mobile:w-15 h-10 mobile:h-15 border-5 rounded-50% border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin animate-duration-1000" />
     </div>
 )
 
@@ -38,7 +38,7 @@ export const Splash: Component = () => {
                         class="flex flex-col absolute w-100% h-100% justify-center items-center"
                     >
                         <svg
-                            class="w-14 h-14 fill-current text-gray-500"
+                            class="w-14 mobile:w-21 h-14 mobile:h-21 fill-current text-gray-500"
                             height="48"
                             viewBox="0 -960 960 960"
                             width="48"
@@ -48,7 +48,7 @@ export const Splash: Component = () => {
                         <div class="pb-4" />
                         <button class="bg-transparent" onClick={() => setPaused(!paused())} disabled={menuIsOpened()}>
                             <svg
-                                class="w-7.5 h-7.5 fill-current text-gray-500"
+                                class="w-7.5 mobile:w-11.25 h-7.5 mobile:h-11.25 fill-current text-gray-500"
                                 height="48"
                                 viewBox="0 -960 960 960"
                                 width="48"
@@ -59,14 +59,14 @@ export const Splash: Component = () => {
                             </svg>
                         </button>
                     </div>
-                    <div class="flex absolute bottom-0 p-3 w-100% justify-center items-center">
+                    <div class="flex absolute bottom-0 p-3 mobile:p-4.5 w-100% justify-center items-center">
                         <button
                             class="bg-transparent"
                             onClick={() => setMenuIsOpened(!menuIsOpened())}
                             disabled={menuIsOpened()}
                         >
                             <svg
-                                class="w-7.5 h-7.5 fill-current text-gray-500"
+                                class="w-7.5 mobile:w-11.25 h-7.5 mobile:h-11.25 fill-current text-gray-500"
                                 height="48"
                                 viewBox="0 -960 960 960"
                                 width="48"
@@ -112,15 +112,17 @@ export const Splash: Component = () => {
                                 tabindex={0}
                                 onClick={() => setMenuIsOpened(false)}
                             >
-                                <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] py-2.5 px-2">
+                                <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] px-2 mobile:px-3 py-2.5 mobile:py-3.75">
                                     <For each={rainvillePlayerResource.latest!.tracks}>
                                         {(track, index) => (
                                             <div
                                                 role="button"
-                                                class="py-2.5 px-2"
+                                                class="px-2 mobile:px-3 py-2.5 mobile:py-3.75"
                                                 onClick={() => (rainvillePlayerResource.latest!.trackNum = index())}
                                             >
-                                                <span class="text-gray-700 font-300">{i18n().t(track[0])}</span>
+                                                <span class="text-gray-700 font-300 text-1rem mobile:text-1.5rem">
+                                                    {i18n().t(track[0])}
+                                                </span>
                                             </div>
                                         )}
                                     </For>
