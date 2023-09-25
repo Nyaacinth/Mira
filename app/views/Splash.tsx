@@ -46,7 +46,11 @@ export const Splash: Component = () => {
                             <RainyOutline />
                         </svg>
                         <div class="pb-4" />
-                        <button class="bg-transparent" onClick={() => setPaused(!paused())} disabled={menuIsOpened()}>
+                        <button
+                            class="bg-transparent rounded-full"
+                            onClick={() => setPaused(!paused())}
+                            disabled={menuIsOpened()}
+                        >
                             <svg
                                 class="w-7.5 mobile:w-11.25 h-7.5 mobile:h-11.25 fill-current text-gray-500"
                                 height="48"
@@ -120,7 +124,13 @@ export const Splash: Component = () => {
                                                 class="px-2 mobile:px-2.5 py-2.5 mobile:py-3.125"
                                                 onClick={() => (rainvillePlayerResource.latest!.trackNum = index())}
                                             >
-                                                <span class="text-gray-700 font-300 text-16px mobile:text-20px">
+                                                <span
+                                                    class="text-gray-700 font-300 text-16px mobile:text-20px"
+                                                    classList={{
+                                                        ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
+                                                            rainvillePlayerResource.latest!.trackNum === index()
+                                                    }}
+                                                >
                                                     {i18n().t(track[0])}
                                                 </span>
                                             </div>
