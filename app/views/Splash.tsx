@@ -14,8 +14,13 @@ const LoadingSpinner: Component = () => (
 )
 
 const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
+    const tracks = () => props.rainvillePlayer.tracks
+
     const [paused, setPaused] = createSignal(true)
     createEffect(() => (props.rainvillePlayer.paused = paused()))
+
+    const [trackNum, setTrackNum] = createSignal(5)
+    createEffect(() => (props.rainvillePlayer.trackNum = trackNum()))
 
     const [menuIsOpened, setMenuIsOpened] = createSignal(false)
 
@@ -102,18 +107,18 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                         onClick={() => setMenuIsOpened(false)}
                     >
                         <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] px-2 mobile:px-2.5 py-2.5 mobile:py-3.125">
-                            <For each={props.rainvillePlayer.tracks}>
+                            <For each={tracks()}>
                                 {(track, index) => (
                                     <div
                                         role="button"
                                         class="px-2 mobile:px-2.5 py-2.5 mobile:py-3.125"
-                                        onClick={() => (props.rainvillePlayer.trackNum = index())}
+                                        onClick={() => setTrackNum(index())}
                                     >
                                         <span
                                             class="text-gray-700 font-300 text-16px mobile:text-20px"
                                             classList={{
                                                 ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
-                                                    props.rainvillePlayer.trackNum === index()
+                                                    trackNum() === index()
                                             }}
                                         >
                                             {i18n().t(track[0])}
