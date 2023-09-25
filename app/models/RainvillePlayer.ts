@@ -39,7 +39,7 @@ export class RainvillePlayer {
 
     /** Current Track Object */
     get currentTrack() {
-        return this.rainville[this._trackNum]
+        return this.rainville[this._trackNum]!
     }
 
     /** All Playable Track */
@@ -70,7 +70,4 @@ export class RainvillePlayer {
  * Get Rainville Player Instance
  * @description It awaits `rainvillePromise` and uses `new RainvillePlayer(rainville)` internally
  */
-export async function createRainvillePlayer() {
-    const rainville = await rainvillePromise
-    return new RainvillePlayer(rainville)
-}
+export const createRainvillePlayer = async () => new RainvillePlayer(await rainvillePromise)
