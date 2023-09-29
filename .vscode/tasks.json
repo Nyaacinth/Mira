@@ -3,21 +3,21 @@
     "tasks": [
         {
             "label": "Launch Development Server",
-            "type": "shell",
-            "command": "bun run dev:vite",
+            "type": "bun",
+            "script": "dev:vite",
             "isBackground": true,
             "group": "build"
         },
         {
             "label": "Build PWA",
-            "type": "shell",
-            "command": "bun run build:pwa",
+            "type": "bun",
+            "script": "build:pwa",
             "group": "build"
         },
         {
             "label": "Build Tauri Application",
-            "type": "shell",
-            "command": "bun run build:tauri",
+            "type": "bun",
+            "script": "build:tauri",
             "group": "build"
         }
     ]
