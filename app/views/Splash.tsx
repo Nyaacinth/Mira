@@ -145,7 +145,7 @@ export const Splash: Component = () => {
                     <LoadingSpinner />
                 </Match>
                 <Match when={rainvillePlayerResource.latest}>
-                    <PlayerView rainvillePlayer={rainvillePlayerResource.latest!} />
+                    {(rainvillePlayer) => <PlayerView rainvillePlayer={rainvillePlayer()} />}
                 </Match>
             </Switch>
         </div>
