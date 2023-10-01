@@ -9,7 +9,7 @@ import { RainvillePlayer, createRainvillePlayer } from "../models/RainvillePlaye
 
 const LoadingSpinner: Component = () => (
     <div class="flex absolute w-100% h-100% justify-center items-center">
-        <div class="w-10 mobile:w-15 h-10 mobile:h-15 border-5 rounded-50% border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin animate-duration-1000" />
+        <div class="w-10 mobile:w-15 h-10 mobile:h-15 border-5 mobile:border-7.5 rounded-50% border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin animate-duration-1000" />
     </div>
 )
 
