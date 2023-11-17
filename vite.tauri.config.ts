@@ -1,4 +1,4 @@
-import Tauri from "vite-plugin-tauri"
+import pluginTauri from "vite-plugin-tauri"
 import baseViteConfig from "./vite.config"
 
 import { defineConfig, mergeConfig } from "vite"
@@ -6,6 +6,6 @@ import { defineConfig, mergeConfig } from "vite"
 export default mergeConfig(
     baseViteConfig,
     defineConfig({
-        plugins: [Tauri()]
+        plugins: [pluginTauri()]
     })
 )
