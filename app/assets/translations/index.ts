@@ -52,10 +52,10 @@ i18nInstance
 export const i18n = (() => {
     const [i18nSignal, dispatchI18nSignalWith] = createSignal(i18nInstance)
 
-    i18nInstance.on("initialized", () => dispatchI18nSignalWith(i18n))
-    i18nInstance.on("loaded", () => dispatchI18nSignalWith(i18n))
-    i18nInstance.on("added", () => dispatchI18nSignalWith(i18n))
-    i18nInstance.on("languageChanged", () => dispatchI18nSignalWith(i18n))
+    i18nInstance.on("initialized", () => dispatchI18nSignalWith(i18nInstance))
+    i18nInstance.on("loaded", () => dispatchI18nSignalWith(i18nInstance))
+    i18nInstance.on("added", () => dispatchI18nSignalWith(i18nInstance))
+    i18nInstance.on("languageChanged", () => dispatchI18nSignalWith(i18nInstance))
 
     return i18nSignal
 })()
