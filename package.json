@@ -13,7 +13,6 @@
     "dependencies": {
         "@solidjs/router": "^0.8.3",
         "@tauri-apps/api": "^1.5.0",
-        "@unocss/reset": "^0.56.4",
         "i18next": "^23.5.1",
         "solid-js": "^1.7.12",
         "solid-transition-group": "^0.2.3"
@@ -22,12 +21,13 @@
         "@tauri-apps/cli": "^1.5.0",
         "@typescript-eslint/eslint-plugin": "^6.7.3",
         "@typescript-eslint/parser": "^6.7.3",
-        "@unocss/preset-wind": "^0.56.4",
+        "autoprefixer": "^10.4.16",
         "eslint": "^8.50.0",
         "eslint-plugin-solid": "^0.13.0",
+        "postcss": "^8.4.31",
         "prettier": "^3.0.3",
+        "tailwindcss": "^3.3.5",
         "typescript": "^5.2.2",
-        "unocss": "^0.56.4",
         "vite": "^4.4.9",
         "vite-plugin-checker": "^0.6.2",
         "vite-plugin-pwa": "^0.16.5",

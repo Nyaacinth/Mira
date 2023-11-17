@@ -8,8 +8,8 @@ import { RainyOutline } from "../components/svg+path/RainyOutline"
 import { RainvillePlayer, createRainvillePlayer } from "../models/RainvillePlayer"
 
 const LoadingSpinner: Component = () => (
-    <div class="flex absolute w-100% h-100% justify-center items-center">
-        <div class="w-10 mobile:w-15 h-10 mobile:h-15 border-5 mobile:border-7.5 rounded-50% border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin animate-duration-1000" />
+    <div class="flex absolute w-full h-full justify-center items-center">
+        <div class="w-[20vmin] h-[20vmin] border-8 rounded-full border-[#FFFFFFAF_#FFFFFFAF_#4FAFFFAF_#FFFFFFAF] animate-spin" />
     </div>
 )
 
@@ -26,9 +26,9 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
 
     return (
         <>
-            <div data-tauri-drag-region class="flex flex-col absolute w-100% h-100% justify-center items-center">
+            <div data-tauri-drag-region class="flex flex-col absolute w-full h-full justify-center items-center">
                 <svg
-                    class="w-14 mobile:w-21 h-14 mobile:h-21 fill-current text-gray-500"
+                    class="w-14 mobile:w-[6rem] h-14 mobile:h-[6rem] fill-current text-gray-500"
                     height="48"
                     viewBox="0 -960 960 960"
                     width="48"
@@ -42,7 +42,7 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                     disabled={menuIsOpened()}
                 >
                     <svg
-                        class="w-7.5 mobile:w-11.25 h-7.5 mobile:h-11.25 fill-current text-gray-500"
+                        class="w-8 mobile:w-12 h-8 mobile:h-12 fill-current text-gray-500"
                         height="48"
                         viewBox="0 -960 960 960"
                         width="48"
@@ -53,14 +53,14 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                     </svg>
                 </button>
             </div>
-            <div class="flex absolute bottom-0 p-3 mobile:p-4.5 w-100% justify-center items-center">
+            <div class="flex absolute bottom-0 p-3 mobile:p-5 w-full justify-center items-center">
                 <button
                     class="bg-transparent"
                     onClick={() => setMenuIsOpened(!menuIsOpened())}
                     disabled={menuIsOpened()}
                 >
                     <svg
-                        class="w-7.5 mobile:w-11.25 h-7.5 mobile:h-11.25 fill-current text-gray-500"
+                        class="w-8 mobile:w-12 h-8 mobile:h-12 fill-current text-gray-500"
                         height="48"
                         viewBox="0 -960 960 960"
                         width="48"
@@ -100,22 +100,22 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                 <Show when={menuIsOpened()}>
                     <div
                         data-tauri-drag-region
-                        class="absolute w-100% h-100% bg-[#00103033] focus:bg-[#00103066]"
+                        class="absolute w-full h-full bg-[#00103033] focus:bg-[#00103066]"
                         style="-webkit-tap-highlight-color: #00000000;"
                         role="button"
                         tabindex={0}
                         onClick={() => setMenuIsOpened(false)}
                     >
-                        <div class="absolute bottom-0 w-100% h-50% overflow-scroll bg-[#FFFFFC] rounded-t-lg border-0.5 border-[#EFEFCF] drop-shadow-2xl drop-shadow-color-[#00103026] px-2 mobile:px-2.5 py-2.5 mobile:py-3.125">
+                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4">
                             <For each={tracks()}>
                                 {(track, index) => (
                                     <div
                                         role="button"
-                                        class="px-2 mobile:px-2.5 py-2.5 mobile:py-3.125"
+                                        class="px-2 mobile:px-3 py-3 mobile:py-4"
                                         onClick={() => setTrackNum(index())}
                                     >
                                         <span
-                                            class="text-gray-700 font-300 text-16px mobile:text-20px"
+                                            class="text-gray-700 font-light text-[16px] mobile:text-[20px]"
                                             classList={{
                                                 ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
                                                     trackNum() === index()
@@ -139,7 +139,7 @@ export const Splash: Component = () => {
     createEffect(() => rainvillePlayerResource.error && location.reload())
 
     return (
-        <div class="relative w-100% h-100% bg-gray-300">
+        <div class="relative w-full h-full bg-gray-300">
             <Switch>
                 <Match when={rainvillePlayerResource.loading}>
                     <LoadingSpinner />

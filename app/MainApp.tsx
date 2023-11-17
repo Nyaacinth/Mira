@@ -3,8 +3,7 @@ import * as tauri from "@tauri-apps/api"
 import { Component, onMount } from "solid-js"
 import { Splash } from "./views/Splash"
 
-import "@unocss/reset/tailwind-compat.css"
-import "uno.css"
+import "./MainApp.css"
 
 export const MainApp: Component = () => {
     onMount(() => {
