@@ -21,4 +21,4 @@ _点滴到天明。_
 
 请见 https://github.com/Nyaacinth/Mira/releases
 
-请注意本品的本地版本仅适用于 macOS Big Sur 及以上版本
+注意：本品的本地版本仅适用于 macOS Big Sur 及以上版本
