@@ -1,0 +1,11 @@
+{
+    // General
+    "task.allowAutomaticTasks": "on",
+    "editor.codeActionsOnSave": { "source.organizeImports": true },
+    "editor.formatOnSave": true,
+    // ESLint
+    "eslint.options": { "ignorePath": ".gitignore" },
+    // Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.ignorePath": ".gitignore"
+}
