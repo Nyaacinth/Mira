@@ -3,6 +3,6 @@
 <plist version="1.0">
     <dict>
         <key>com.apple.security.app-sandbox</key>
-        <false /> <!-- disable app sandbox due to its limitations -->
+        <false/> <!-- disable app sandbox due to its limitations -->
     </dict>
 </plist>
