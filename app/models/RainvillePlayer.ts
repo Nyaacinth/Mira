@@ -6,12 +6,19 @@ export class RainvillePlayer {
     /** Rainville Assets */
     private rainville: Awaited<typeof rainvillePromise>
 
+    private previousFadeInIntervalTicket?: ReturnType<typeof setInterval>
+
     constructor(rainville: Awaited<typeof rainvillePromise>) {
         this.rainville = rainville
+        this.gainNode.gain.value = 0.0
+        this.gainNode.connect(audioContext.destination)
     }
 
     /** Current Buffer Source, will be overwritten when handling change */
     private currentBufferSource = audioContext.createBufferSource()
+
+    /** Buffer source will connect to it, and it will be preserved during change */
+    private gainNode = audioContext.createGain()
 
     /** Private Paused Status */
     private _paused = true
@@ -54,13 +61,31 @@ export class RainvillePlayer {
             this.currentBufferSource = audioContext.createBufferSource()
             this.currentBufferSource.loop = true
             this.currentBufferSource.buffer = this.rainville[this._trackNum]![1]!
-            this.currentBufferSource.connect(audioContext.destination)
+            this.currentBufferSource.connect(this.gainNode)
+            this.fadeIn()
             this.currentBufferSource.start()
         }
     }
 
+    private fadeIn() {
+        this.gainNode.gain.value = 0
+        const ticket = setInterval(() => {
+            if (this.gainNode.gain.value >= 1.0) {
+                clearInterval(ticket)
+                this.previousFadeInIntervalTicket = undefined
+                return
+            }
+            this.gainNode.gain.value += 0.05
+        }, 50)
+        this.previousFadeInIntervalTicket = ticket
+    }
+
     /** Player Destory Handler, you must call it to stop the rain sound and free the memory */
     handleDestroy() {
+        if (this.previousFadeInIntervalTicket) {
+            clearInterval(this.previousFadeInIntervalTicket)
+            this.previousFadeInIntervalTicket = undefined
+        }
         if (this.currentBufferSource.buffer) this.currentBufferSource.stop()
         this.currentBufferSource.disconnect()
     }

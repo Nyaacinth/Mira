@@ -1,23 +1,21 @@
-import { Route, Router, Routes } from "@solidjs/router"
-import * as tauri from "@tauri-apps/api"
-import { Component, onMount } from "solid-js"
+import { Route, Router } from "@solidjs/router"
+import { Component, onCleanup, onMount } from "solid-js"
+import { doTauriInit } from "./utils/doTauriInit"
 import { Splash } from "./views/Splash"
 
 import "./MainApp.css"
 
 export const MainApp: Component = () => {
     onMount(() => {
-        if ("__TAURI__" in window) {
-            tauri.window.appWindow.show()
-            tauri.window.appWindow.setFocus()
-        }
+        const tauriInitCleanup = doTauriInit()
+        onCleanup(() => {
+            tauriInitCleanup()
+        })
     })
 
     return (
         <Router>
-            <Routes>
-                <Route path="/" component={Splash} />
-            </Routes>
+            <Route path="/" component={Splash} />
         </Router>
     )
 }

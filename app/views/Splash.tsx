@@ -106,7 +106,7 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                         tabindex={0}
                         onClick={() => setMenuIsOpened(false)}
                     >
-                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4">
+                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4 overscroll-contain">
                             <For each={tracks()}>
                                 {(track, index) => (
                                     <div

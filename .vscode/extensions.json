@@ -1,11 +1,10 @@
 {
     "recommendations": [
-        "oven.bun-vscode",
-        "aaron-bond.better-comments",
-        "tauri-apps.tauri-vscode",
-        "rust-lang.rust-analyzer",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        "redhat.vscode-xml"
     ]
 }
