@@ -58,9 +58,12 @@ export class RainvillePlayer {
     private handleChange() {
         this.handleDestroy()
         if (!this._paused) {
+            const buffer = this.rainville[this._trackNum]![1]!
             this.currentBufferSource = audioContext.createBufferSource()
+            this.currentBufferSource.loopStart = 2 * (2112 / 44100)
+            this.currentBufferSource.loopEnd = buffer.duration - 2112 / 44100
             this.currentBufferSource.loop = true
-            this.currentBufferSource.buffer = this.rainville[this._trackNum]![1]!
+            this.currentBufferSource.buffer = buffer
             this.currentBufferSource.connect(this.gainNode)
             this.fadeIn()
             this.currentBufferSource.start()
