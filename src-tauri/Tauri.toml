@@ -20,6 +20,7 @@ hiddenTitle = true
 resizable = true
 fullscreen = false
 visible = false
+trafficLightPosition = { x = 11, y = 15 }
 
 [app.security]
 csp = "default-src 'self'; connect-src 'self' https: wss:; img-src 'self' https: data:; media-src 'self' https: data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';"

@@ -1,15 +1,21 @@
 import audioContext from "../assets/audio/audioContext"
-import rainvillePromise from "../assets/audio/rainville"
+import rainPromise from "../assets/audio/rainville/rain"
+
+const rainvilleParams = [
+    ["audio1Label", 0.16],
+    ["audio2Label", 0.2],
+    ["audio3Label", 0.48],
+    ["audio4Label", 0.8],
+    ["audio5Label", 1],
+    ["audio6Label", 2],
+    ["audio7Label", 3]
+] as const
 
 /** Rainville Player Class */
 export class RainvillePlayer {
-    /** Rainville Assets */
-    private rainville: Awaited<typeof rainvillePromise>
-
     private previousFadeInIntervalTicket?: ReturnType<typeof setInterval>
 
-    constructor(rainville: Awaited<typeof rainvillePromise>) {
-        this.rainville = rainville
+    constructor(private rain: Awaited<typeof rainPromise>) {
         this.gainNode.gain.value = 0.0
         this.gainNode.connect(audioContext.destination)
     }
@@ -33,7 +39,7 @@ export class RainvillePlayer {
     }
 
     /** Private Track Number */
-    private _trackNum = 5
+    private _trackNum = 3
 
     /** Public Track Number, set it will trigger handleChange() */
     get trackNum() {
@@ -46,24 +52,24 @@ export class RainvillePlayer {
 
     /** Current Track Object */
     get currentTrack() {
-        return this.rainville[this._trackNum]!
+        return rainvilleParams[this._trackNum]!
     }
 
     /** All Playable Track */
     get tracks() {
-        return this.rainville
+        return rainvilleParams
     }
 
     /** Change Handler, it will overwrite currentBufferSource and restart it to change the track, uses handleDestory internally */
     private handleChange() {
         this.handleDestroy()
         if (!this._paused) {
-            const buffer = this.rainville[this._trackNum]![1]!
             this.currentBufferSource = audioContext.createBufferSource()
+            this.currentBufferSource.buffer = this.rain
             this.currentBufferSource.loopStart = 2 * (2112 / 44100)
-            this.currentBufferSource.loopEnd = buffer.duration - 2112 / 44100
+            this.currentBufferSource.loopEnd = this.rain.duration - 2112 / 44100
             this.currentBufferSource.loop = true
-            this.currentBufferSource.buffer = buffer
+            this.currentBufferSource.playbackRate.value = this.currentTrack[1]
             this.currentBufferSource.connect(this.gainNode)
             this.fadeIn()
             this.currentBufferSource.start()
@@ -98,4 +104,4 @@ export class RainvillePlayer {
  * Get Rainville Player Instance
  * @description It awaits `rainvillePromise` and uses `new RainvillePlayer(rainville)` internally
  */
-export const createRainvillePlayer = async () => new RainvillePlayer(await rainvillePromise)
+export const createRainvillePlayer = async () => new RainvillePlayer(await rainPromise)

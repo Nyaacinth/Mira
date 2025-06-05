@@ -19,7 +19,7 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
     const [paused, setPaused] = createSignal(true)
     createEffect(() => (props.rainvillePlayer.paused = paused()))
 
-    const [trackNum, setTrackNum] = createSignal(5)
+    const [trackNum, setTrackNum] = createSignal(3)
     createEffect(() => (props.rainvillePlayer.trackNum = trackNum()))
 
     const [menuIsOpened, setMenuIsOpened] = createSignal(false)
@@ -106,7 +106,7 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
                         tabindex={0}
                         onClick={() => setMenuIsOpened(false)}
                     >
-                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4 overscroll-contain">
+                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4">
                             <For each={tracks()}>
                                 {(track, index) => (
                                     <div

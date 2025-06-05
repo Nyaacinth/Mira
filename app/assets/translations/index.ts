@@ -20,30 +20,24 @@ i18nInstance
         resources: {
             ["en"]: {
                 translation: {
-                    audio0Label: "Deep",
                     audio1Label: "Rumble",
                     audio2Label: "Dark",
                     audio3Label: "Summer",
                     audio4Label: "Drops",
                     audio5Label: "Clear",
                     audio6Label: "Urban",
-                    audio7Label: "Balcony",
-                    audio8Label: "Pitter",
-                    audio9Label: "White Noise"
+                    audio7Label: "Balcony"
                 }
             },
             ["zh"]: {
                 translation: {
-                    audio0Label: "深邃",
                     audio1Label: "隆隆",
                     audio2Label: "乌云",
                     audio3Label: "夏日",
                     audio4Label: "点滴",
                     audio5Label: "清润",
                     audio6Label: "都市",
-                    audio7Label: "阳台",
-                    audio8Label: "淅沥",
-                    audio9Label: "白噪"
+                    audio7Label: "阳台"
                 }
             }
         }
