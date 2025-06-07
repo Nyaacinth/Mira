@@ -23,7 +23,7 @@ visible = false
 trafficLightPosition = { x = 11, y = 15 }
 
 [app.security]
-csp = "default-src 'self'; connect-src 'self' https: wss:; img-src 'self' https: data:; media-src 'self' https: data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';"
+csp = "default-src 'self'; connect-src 'self' https: wss:; img-src 'self' https: data:; media-src 'self' https: data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline' 'unsafe-eval'; font-src 'self';"
 devCsp = "default-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob:;"
 
 [bundle]
