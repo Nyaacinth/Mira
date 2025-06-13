@@ -13,6 +13,7 @@
     "dependencies": {
         "@solidjs/router": "^0.15.3",
         "@tauri-apps/api": "^2.5.0",
+        "@tauri-apps/plugin-os": "~2",
         "i18next": "^25.2.1",
         "solid-js": "^1.9.7",
         "solid-transition-group": "^0.3.0"

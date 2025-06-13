@@ -1,0 +1,11 @@
+[[app.windows]]
+label = "main"
+title = "Mira"
+width = 300
+height = 500
+titleBarStyle = "Overlay"
+hiddenTitle = true
+resizable = false
+fullscreen = false
+visible = false
+trafficLightPosition = { x = 11, y = 15 }

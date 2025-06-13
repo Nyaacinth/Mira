@@ -1,0 +1,10 @@
+[[app.windows]]
+label = "main"
+title = "Mira"
+width = 300
+height = 500
+resizable = false
+fullscreen = false
+visible = false
+decorations = false
+shadow = true

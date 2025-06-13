@@ -1,5 +1,6 @@
 import { Route, Router } from "@solidjs/router"
 import { Component, onCleanup, onMount } from "solid-js"
+import { OptionalCloseButton } from "./components/OptionalCloseButton"
 import { doTauriInit } from "./utils/doTauriInit"
 import { Splash } from "./views/Splash"
 
@@ -14,8 +15,11 @@ export const MainApp: Component = () => {
     })
 
     return (
-        <Router>
-            <Route path="/" component={Splash} />
-        </Router>
+        <>
+            <OptionalCloseButton />
+            <Router>
+                <Route path="/" component={Splash} />
+            </Router>
+        </>
     )
 }
