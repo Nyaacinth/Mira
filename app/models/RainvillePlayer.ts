@@ -7,8 +7,7 @@ const rainvilleParams = [
     ["audio3Label", 0.48],
     ["audio4Label", 0.8],
     ["audio5Label", 1],
-    ["audio6Label", 2],
-    ["audio7Label", 3]
+    ["audio6Label", 2]
 ] as const
 
 /** Rainville Player Class */
@@ -80,6 +79,7 @@ export class RainvillePlayer {
         this.gainNode.gain.value = 0
         const ticket = setInterval(() => {
             if (this.gainNode.gain.value >= 1.0) {
+                this.gainNode.gain.value = 1.0
                 clearInterval(ticket)
                 this.previousFadeInIntervalTicket = undefined
                 return

@@ -1,5 +1,6 @@
 import { Component, For, Match, Show, Switch, createEffect, createResource, createSignal } from "solid-js"
 import { Transition } from "solid-transition-group"
+import backgroundUrl from "../assets/images/background"
 import { i18n } from "../assets/translations"
 import { KeyboardArrowUpOutline } from "../components/svg+path/KeyboardArrowUpOutline"
 import { PauseCircleOutline } from "../components/svg+path/PauseCircleOutline"
@@ -27,31 +28,33 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
     return (
         <>
             <div data-tauri-drag-region class="flex flex-col absolute w-full h-full justify-center items-center">
-                <svg
-                    class="w-14 mobile:w-[6rem] h-14 mobile:h-[6rem] fill-current text-gray-500"
-                    height="48"
-                    viewBox="0 -960 960 960"
-                    width="48"
-                >
-                    <RainyOutline />
-                </svg>
-                <div class="pb-4" />
-                <button
-                    class="bg-transparent rounded-full"
-                    onClick={() => setPaused(!paused())}
-                    disabled={menuIsOpened()}
-                >
+                <div class="bg-[#ffffff96] flex flex-col justify-center items-center p-4 rounded-lg shadow-md backdrop-blur-lg">
                     <svg
-                        class="w-8 mobile:w-12 h-8 mobile:h-12 fill-current text-gray-500"
+                        class="w-14 mobile:w-[6rem] h-14 mobile:h-[6rem] fill-current text-gray-500"
                         height="48"
                         viewBox="0 -960 960 960"
                         width="48"
                     >
-                        <Show when={paused()} fallback={<PauseCircleOutline />}>
-                            <PlayCircleOutline />
-                        </Show>
+                        <RainyOutline />
                     </svg>
-                </button>
+                    <div class="mt-3 ml-2 mr-2 w-12 h-[2px] rounded-full bg-[#00000044] mb-3" />
+                    <button
+                        class="bg-transparent rounded-full"
+                        onClick={() => setPaused(!paused())}
+                        disabled={menuIsOpened()}
+                    >
+                        <svg
+                            class="w-8 mobile:w-12 h-8 mobile:h-12 fill-current text-gray-500"
+                            height="48"
+                            viewBox="0 -960 960 960"
+                            width="48"
+                        >
+                            <Show when={paused()} fallback={<PauseCircleOutline />}>
+                                <PlayCircleOutline />
+                            </Show>
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div class="flex absolute bottom-0 p-3 mobile:p-5 w-full justify-center items-center">
                 <button
@@ -139,7 +142,14 @@ export const Splash: Component = () => {
     createEffect(() => rainvillePlayerResource.error && location.reload())
 
     return (
-        <div class="relative w-full h-full bg-gray-300">
+        <div
+            class="relative w-full h-full"
+            style={{
+                "background-image": `linear-gradient(#b4bbc6, #b4bbc6), url(${backgroundUrl})`,
+                "background-size": "cover",
+                "background-blend-mode": "hard-light"
+            }}
+        >
             <Switch>
                 <Match when={rainvillePlayerResource.loading}>
                     <LoadingSpinner />

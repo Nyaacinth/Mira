@@ -25,8 +25,7 @@ i18nInstance
                     audio3Label: "Summer",
                     audio4Label: "Drops",
                     audio5Label: "Clear",
-                    audio6Label: "Urban",
-                    audio7Label: "Balcony"
+                    audio6Label: "Urban"
                 }
             },
             ["zh"]: {
@@ -36,8 +35,7 @@ i18nInstance
                     audio3Label: "夏日",
                     audio4Label: "点滴",
                     audio5Label: "清润",
-                    audio6Label: "都市",
-                    audio7Label: "阳台"
+                    audio6Label: "都市"
                 }
             }
         }
