@@ -2,6 +2,7 @@ import { Component, For, Match, Show, Switch, createEffect, createResource, crea
 import { Transition } from "solid-transition-group"
 import backgroundUrl from "../assets/images/background"
 import { i18n } from "../assets/translations"
+import { DownArrowRounded } from "../components/svg+path/DownArrowRounded"
 import { KeyboardArrowUpOutline } from "../components/svg+path/KeyboardArrowUpOutline"
 import { PauseCircleOutline } from "../components/svg+path/PauseCircleOutline"
 import { PlayCircleOutline } from "../components/svg+path/PlayCircleOutline"
@@ -74,62 +75,55 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
             </div>
             <Transition
                 onEnter={(el, done) => {
-                    const a = el.animate([{ opacity: 0 }, { opacity: 1 }], {
-                        duration: 300
+                    const a = el.animate([{ transform: "translateY(100%)" }, { transform: "translateY(0%)" }], {
+                        duration: 300,
+                        easing: "ease-out"
                     })
-                    const b = el.children[0]!.animate(
-                        [{ transform: "translateY(100%)" }, { transform: "translateY(0%)" }],
-                        {
-                            duration: 300,
-                            easing: "ease-out"
-                        }
-                    )
-                    Promise.all([a.finished, b.finished]).then(done)
+                    Promise.all([a.finished]).then(done)
                 }}
                 onExit={(el, done) => {
-                    const a = el.animate([{ opacity: 1 }, { opacity: 0 }], {
-                        duration: 300
+                    const a = el.animate([{ transform: "translateY(0%)" }, { transform: "translateY(100%)" }], {
+                        duration: 300,
+                        easing: "ease-in"
                     })
-                    const b = el.children[0]!.animate(
-                        [{ transform: "translateY(0%)" }, { transform: "translateY(100%)" }],
-                        {
-                            duration: 300,
-                            easing: "ease-in"
-                        }
-                    )
-                    Promise.all([a.finished, b.finished]).then(done)
+                    Promise.all([a.finished]).then(done)
                 }}
             >
                 <Show when={menuIsOpened()}>
                     <div
-                        data-tauri-drag-region
-                        class="absolute w-full h-full bg-[#00103033] focus:bg-[#00103066]"
-                        style="-webkit-tap-highlight-color: #00000000;"
-                        role="button"
-                        tabindex={0}
+                        class="absolute bottom-0 flex flex-col w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl pb-2 pl-3 pr-3"
                         onClick={() => setMenuIsOpened(false)}
                     >
-                        <div class="absolute bottom-0 w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl px-2 mobile:px-3 py-3 mobile:py-4">
-                            <For each={tracks()}>
-                                {(track, index) => (
-                                    <div
-                                        role="button"
-                                        class="px-2 mobile:px-3 py-3 mobile:py-4"
-                                        onClick={() => setTrackNum(index())}
+                        <button
+                            class="ml-auto mr-auto mt-0 mb-0 p-0 text-gray-500"
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                setMenuIsOpened(false)
+                            }}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <DownArrowRounded />
+                            </svg>
+                        </button>
+                        <For each={tracks()}>
+                            {(track, index) => (
+                                <div
+                                    role="button"
+                                    class="px-2 mobile:px-3 py-3 mobile:py-4"
+                                    onClick={() => setTrackNum(index())}
+                                >
+                                    <span
+                                        class="text-gray-700 font-light text-[16px] mobile:text-[20px]"
+                                        classList={{
+                                            ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
+                                                trackNum() === index()
+                                        }}
                                     >
-                                        <span
-                                            class="text-gray-700 font-light text-[16px] mobile:text-[20px]"
-                                            classList={{
-                                                ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
-                                                    trackNum() === index()
-                                            }}
-                                        >
-                                            {i18n().t(track[0])}
-                                        </span>
-                                    </div>
-                                )}
-                            </For>
-                        </div>
+                                        {i18n().t(track[0])}
+                                    </span>
+                                </div>
+                            )}
+                        </For>
                     </div>
                 </Show>
             </Transition>
