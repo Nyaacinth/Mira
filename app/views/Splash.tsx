@@ -91,39 +91,41 @@ const PlayerView: Component<{ rainvillePlayer: RainvillePlayer }> = (props) => {
             >
                 <Show when={menuIsOpened()}>
                     <div
-                        class="absolute bottom-0 flex flex-col w-full h-[50%] overflow-scroll bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl pb-2 pl-3 pr-3"
+                        class="absolute bottom-0 w-full h-[50%] bg-[#FFFFFC] rounded-t-lg border-1 border-[#EFEFCF] drop-shadow-2xl pb-2 pl-3 pr-3"
                         onClick={() => setMenuIsOpened(false)}
                     >
-                        <button
-                            class="ml-auto mr-auto mt-0 mb-0 p-0 text-gray-500"
-                            onClick={(e) => {
-                                e.stopPropagation()
-                                setMenuIsOpened(false)
-                            }}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <DownArrowRounded />
-                            </svg>
-                        </button>
-                        <For each={tracks()}>
-                            {(track, index) => (
-                                <div
-                                    role="button"
-                                    class="px-2 mobile:px-3 py-3 mobile:py-4"
-                                    onClick={() => setTrackNum(index())}
-                                >
-                                    <span
-                                        class="text-gray-700 font-light text-[16px] mobile:text-[20px]"
-                                        classList={{
-                                            ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
-                                                trackNum() === index()
-                                        }}
+                        <div class="relative flex flex-col w-full h-full overflow-scroll">
+                            <button
+                                class="sticky top-0 ml-auto mr-auto mt-0 mb-0 p-0 text-gray-500"
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    setMenuIsOpened(false)
+                                }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <DownArrowRounded />
+                                </svg>
+                            </button>
+                            <For each={tracks()}>
+                                {(track, index) => (
+                                    <div
+                                        role="button"
+                                        class="px-2 mobile:px-3 py-3 mobile:py-4"
+                                        onClick={() => setTrackNum(index())}
                                     >
-                                        {i18n().t(track[0])}
-                                    </span>
-                                </div>
-                            )}
-                        </For>
+                                        <span
+                                            class="text-gray-700 font-light text-[16px] mobile:text-[20px]"
+                                            classList={{
+                                                ["after:content-['✓'] after:text-sm after:mobile:text-lg after:absolute after:right-4"]:
+                                                    trackNum() === index()
+                                            }}
+                                        >
+                                            {i18n().t(track[0])}
+                                        </span>
+                                    </div>
+                                )}
+                            </For>
+                        </div>
                     </div>
                 </Show>
             </Transition>
