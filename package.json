@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "@solidjs/router": "^0.15.3",
-        "@tauri-apps/api": "^2.6.0",
+        "@tauri-apps/api": "^2.7.0",
         "@tauri-apps/plugin-os": "~2.3.0",
         "i18next": "^25.3.2",
         "solid-js": "^1.9.7",
@@ -20,16 +20,16 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.1.11",
-        "@tauri-apps/cli": "^2.6.2",
-        "@typescript-eslint/eslint-plugin": "^8.37.0",
-        "@typescript-eslint/parser": "^8.37.0",
-        "eslint": "^9.31.0",
+        "@tauri-apps/cli": "^2.7.1",
+        "@typescript-eslint/eslint-plugin": "^8.39.0",
+        "@typescript-eslint/parser": "^8.39.0",
+        "eslint": "^9.32.0",
         "eslint-plugin-solid": "^0.14.5",
         "prettier": "^3.6.2",
         "tailwindcss": "^4.1.11",
-        "typescript": "^5.8.3",
-        "vite": "^7.0.5",
-        "vite-plugin-pwa": "^1.0.1",
-        "vite-plugin-solid": "^2.11.7"
+        "typescript": "^5.9.2",
+        "vite": "^7.0.6",
+        "vite-plugin-pwa": "^1.0.2",
+        "vite-plugin-solid": "^2.11.8"
     }
 }

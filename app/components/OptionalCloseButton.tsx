@@ -1,13 +1,14 @@
+import { isTauri } from "@tauri-apps/api/core"
 import { getCurrentWindow } from "@tauri-apps/api/window"
 import { platform } from "@tauri-apps/plugin-os"
 import { Component, createMemo, Show } from "solid-js"
 import { CloseSmallRounded } from "./svg+path/CloseSmallRounded"
 
 export const OptionalCloseButton: Component = () => {
-    const isWin = createMemo(() => platform() == "windows")
+    const isTauriWin = createMemo(() => isTauri() && platform() == "windows")
 
     return (
-        <Show when={isWin()}>
+        <Show when={isTauriWin()}>
             <div
                 class="z-9999 fixed right-2 top-2 text-black w-min h-min bg-[#FFFFFF76] rounded-[9999px]"
                 onClick={() => getCurrentWindow().close()}
